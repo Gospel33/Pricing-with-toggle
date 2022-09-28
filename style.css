@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --linear-1: hsl(236, 72%, 79%);
+  --linear-2: hsl(237, 63%, 64%);
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+
+body {
+  background-color: var(--very-light-grayish-blue);
+  color: var(--dark-grayish-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 97vh;
+  font-size: 15px;
+  text-align: center;
+  flex-direction: column;
+}
+
+body::before {
+  content: "";
+  background-image: url("./images/bg-top.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  background-position: top right;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  background-image: url("./images/bg-bottom.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+  background-position: bottom left;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.container {
+  margin: auto;
+  max-width: 100%;
+  width: 1200px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  color: var(--grayish-blue);
+  margin-bottom: 30px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-grayish-blue);
+  margin-bottom: 30px;
+}
+
+.toggle-container p {
+  margin: 10px;
+}
+
+.toggle-container label {
+  background-image: linear-gradient(to right, var(--linear-1), var(--linear-2));
+  width: 45px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-container input {
+  position: absolute;
+  left: -900px;
+}
+
+.toggle-container label .circle {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: hsl(0, 0%, 100%);
+  top: 3px;
+  left: 3px;
+  transition: transform 0.4s ease;
+}
+
+.toggle-container input:checked + label .circle {
+  transform: translateX(20px);
+}
+
+.price-box {
+  background: hsl(0, 0%, 100%);
+  color: var(--grayish-blue);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.1);
+  width: 270px;
+}
+
+.price-box-premium {
+  background-image: linear-gradient(to right, var(--linear-1), var(--linear-2));
+  color: hsl(0, 0%, 100%);
+  transform: scale(1.08);
+}
+
+.price-box-premium * {
+  transform: scale(0.869);
+}
+
+.price-box h4 {
+  margin: 0;
+}
+
+.price-box p {
+  color: var(--dark-grayish-blue);
+  font-size: 3.8em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  width: 250px;
+}
+
+.price-box .monthly {
+  display: none;
+}
+
+.show-monthly .price-box .monthly {
+  display: block;
+}
+.show-monthly .price-box .annually {
+  display: none;
+}
+
+.price-box-premium p {
+  color: hsl(0, 0%, 100%);
+}
+
+.price-box p span {
+  font-size: 28px;
+  margin-right: 5px;
+}
+
+.price-box ul {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--light-grayish-blue);
+}
+
+.price-box ul li {
+  font-size: 14px;
+  border-bottom: 1px solid var(--light-grayish-blue);
+  padding: 15px 0;
+}
+
+.price-box button {
+  margin-top: 16px;
+  background-image: linear-gradient(to right, var(--linear-1), var(--linear-2));
+  color: hsl(0, 0%, 100%);
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 7px;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.price-box-premium button {
+  color: var(--linear-2);
+  background-image: none;
+  background: hsl(0, 0%, 100%);
+}
+
+.attribution {
+  margin-top: 25px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 767px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .price-box {
+    margin: 10px;
+  }
+
+  .price-box-premium {
+    transform: scale(1);
+  }
+
+  .price-box-premium > * {
+    transform: scale(1);
+  }
+}
